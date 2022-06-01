@@ -1,0 +1,17 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+{%block contenido%}
+    <div class="container">
+        <div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <p>Esta seguro que desea el registro de mantencion de la bicicleta: {{mantenciones.code}}</p>
+                <p>Dueño: {{mantenciones.duenio}}| Tecnico: {{mantenciones.tecnico}}</p>
+                <p>Marca: {{mantenciones.marca}} | Modelo:  {{mantenciones.modelo}}</p>
+                <input type="submit" value="Eliminar" class="btn btn-danger">
+                <input type="button" value="Cancelar" class="btn btn-danger">
+            </form>
+        </div>
+    </div>
+
+{%endblock contenido%}

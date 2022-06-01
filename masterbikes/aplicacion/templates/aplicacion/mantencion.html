@@ -1,0 +1,45 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+{%block contenido%}
+<div class="container">
+    <h4 style="float:none ;">Mantenciones</h4>
+    <a class="btn" href={% url 'crear' %}>+ Crear nueva ficha</a>
+    <div>
+        <table class="table tabler-stripped table.hover mb-3">
+            <thead>
+                <tr>
+                    <TH>CODIGO</TH>
+                    <TH>DUEÑO</TH>
+                    <TH>TECNICO</TH>
+                    <TH>MARCA</TH>
+                    <TH>MODELO</TH>
+                    <TH>TIEMPO</TH>
+                    <TH>LLEGADA</TH>
+                    <TH>ENTREGA</TH>
+                    <TH>OPCIONES</TH>
+                </tr>
+            </thead>
+            <TBOdy>
+                {% for p in mantenciones %}
+                <tr>
+                    <td>{{p.code}}</td>
+                    <td>{{p.duenio}}</td>
+                    <td>{{p.tecnico}}</td>
+                    <td>{{p.marca}}</td>
+                    <td>{{p.modelo}}</td>
+                    <td>{{p.tiempo}}</td>
+                    <td>{{p.llegada}}</td>
+                    <td>{{p.entrega}}</td>
+                    <td>
+                        <a href="{% url 'modificar' p.code %}" class="btn btn-warning btn-sm">Modificar</a>
+                        <a href="{% url 'eliminar' p.code %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </TBOdy>
+        </table>
+        <h4>Total mantenciones: {{total}}</h4>
+    </div>
+</div>
+
+{%endblock contenido%}
