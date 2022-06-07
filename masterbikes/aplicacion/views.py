@@ -20,16 +20,14 @@ def home(request):
 def crear(request):
     formulario=frmBicicleta(request.POST or None)
     contexto={
-        "frm":formulario
+        "frm":frmBicicleta
     }
-    
+
     if request.method=="POST":
         formulario=frmBicicleta(data=request.POST)
         if formulario.is_valid():
             formulario.save()
             return redirect(to="mantencion")
-        
-    
     return render(request,"aplicacion/crear.html",contexto)
 
 def modificar(request,id):

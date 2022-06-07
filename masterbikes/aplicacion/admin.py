@@ -1,11 +1,8 @@
 from django.contrib import admin
-from aplicacion.models import Bicicleta
+from aplicacion.models import Bicicleta, Duenio, Marca, Modelo, Tecnico
 # Register your models here.
-class admBicileta(admin.ModelAdmin):
-    list_display=["code","duenio","tecnico","marca","modelo","tiempo","llegada","entrega"]
-    list_editable=["duenio","tecnico","marca","modelo","tiempo","llegada","entrega"]
-    list_filter=["duenio"]
-    class Meta:
-        model=Bicicleta
-
-admin.site.register(Bicicleta,admBicileta)
+admin.site.register(Bicicleta)
+admin.site.register(Duenio)
+admin.site.register(Tecnico)
+admin.site.register(Marca)
+admin.site.register(Modelo)

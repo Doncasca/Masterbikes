@@ -6,4 +6,4 @@ class frmBicicleta(forms.ModelForm):
 
     class Meta:
         model=Bicicleta
-        fields=["code","duenio","tecnico","marca","modelo","tiempo","llegada","entrega"]
+        fields='__all__'

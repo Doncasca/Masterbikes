@@ -1,17 +1,43 @@
 from django.db import models
-from datetime import date
 
 # Create your models here.
+
+class Duenio(models.Model):
+    duenio=models.CharField("Dueño",max_length=50)
+
+    def __str__(self):
+        return self.duenio
+
+class Tecnico(models.Model):
+    tecnico=models.CharField("Tecnico a cargo",max_length=50)
+
+    def __str__(self):
+        return self.tecnico
+
+class Marca(models.Model):
+    marca=models.CharField("Marca",max_length=50)
+
+    def __str__(self):
+        return self.marca
+
+class Modelo(models.Model):
+    modelo=models.CharField("Modelo",max_length=50,null=True)
+
+    def __str__(self):
+        return self.modelo
+
 class Bicicleta(models.Model):
     code=models.AutoField(primary_key=True)
-    duenio=models.CharField("Dueño",max_length=50)
-    tecnico=models.CharField("Tecnico a cargo",max_length=50)
-    marca=models.CharField("Marca",max_length=50)
-    modelo=models.CharField("Modelo",max_length=50,null=True)
+    duenio=models.ForeignKey(Duenio, on_delete=models.PROTECT)
+    tecnico=models.ForeignKey(Tecnico, on_delete=models.PROTECT)
+    marca=models.ForeignKey(Marca, on_delete=models.PROTECT)
+    modelo=models.ForeignKey(Modelo, on_delete=models.PROTECT)
     tiempo=models.IntegerField("Dias de mantenimiento",null=False)
     llegada=models.DateField(default=None)
-    entrega=models.DateField(default=None,null=True)
+    entrega=models.DateField(null=True,blank=True)
 
 
     def __str___(self):
-        return self.code+" - "+ self.duenio
+        return str(self.code)
+
+
