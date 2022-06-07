@@ -4,15 +4,21 @@
 {% block contenido %}
 
 <div class="container">
-    <div class="m-3 p-5">
-        <h4>NUEVA FICHA</h4>
-        <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ frm|crispy }}
-
-            <input type="submit" value="Guardar" class="button">
-
-        </form>
+    <br>
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h4>NUEVA FICHA</h4>
+                <hr>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ frm|crispy }}
+        
+                    <input type="submit" value="Guardar" class="button">
+        
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 

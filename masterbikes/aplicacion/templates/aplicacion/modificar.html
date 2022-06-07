@@ -6,18 +6,23 @@
 <div class="container">
     <script>
         $(document).ready(function () {
-            $('#id_rut').attr("readonly",True)
+            $('#id_rut').attr("readonly", True)
         });
     </script>
-    <div class="m-3 p-5">
-        <h4>MODIFICAR FICHA</h4>
-        <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ frm|crispy }}
+    <br>
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h4>MODIFICAR FICHA</h4>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ frm|crispy }}
 
-            <input type="submit" value="Guardar" class="button">
+                    <input type="submit" value="Guardar" class="button">
 
-        </form>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
