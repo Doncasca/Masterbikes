@@ -33,7 +33,7 @@ class Bicicleta(models.Model):
     marca=models.ForeignKey(Marca, on_delete=models.PROTECT)
     modelo=models.ForeignKey(Modelo, on_delete=models.PROTECT)
     tiempo=models.IntegerField("Dias de mantenimiento",null=False)
-    llegada=models.DateField(default=None)
+    llegada=models.DateField("Dia de llegada (dd/mm/yyyy)",default=None)
     entrega=models.DateField(null=True,blank=True)
 
 

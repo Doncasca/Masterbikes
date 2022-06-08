@@ -20,7 +20,7 @@ def home(request):
 def crear(request):
     formulario=frmBicicleta(request.POST or None)
     contexto={
-        "frm":frmBicicleta
+        "frm":formulario
     }
 
     if request.method=="POST":
