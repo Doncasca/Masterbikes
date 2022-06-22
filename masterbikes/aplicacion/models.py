@@ -1,3 +1,4 @@
+from datetime import date
 from django.db import models
 
 # Create your models here.
@@ -33,7 +34,7 @@ class Bicicleta(models.Model):
     marca=models.ForeignKey(Marca, on_delete=models.PROTECT)
     modelo=models.ForeignKey(Modelo, on_delete=models.PROTECT)
     tiempo=models.IntegerField("Dias de mantenimiento",null=False)
-    llegada=models.DateField("Dia de llegada (dd/mm/yyyy)",default=None)
+    llegada=models.DateField("Dia de llegada (dd/mm/yyyy)",default=date.today)
     entrega=models.DateField(null=True,blank=True)
 
 
